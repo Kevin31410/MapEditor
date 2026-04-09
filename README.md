@@ -1,49 +1,102 @@
-Android Dev Summit 2022 Speed Challenge
-==================
+# 🏰 Éditeur de Cartes Dark Fantasy (Compatible VTT)
 
-Note: This repository was used for the ADS and is not being maintained. As of Oct 2022 it works on Dolphin..Flamingo and uses AGP 7.3.0.
+![Badge Licence](https://img.shields.io/badge/License-MIT-yellow.svg)
+![Badge Python](https://img.shields.io/badge/Python-3.8%2B-blue.svg)
+![Badge Pygame](https://img.shields.io/badge/Made%20with-Pygame-red.svg)
+![Badge VTT](https://img.shields.io/badge/Export-.dd2vtt-green.svg)
 
-# Instructions for contestants
+> **Un créateur de cartes léger et immersif pour les Maîtres du Jeu.**
+> Créez des battlemaps en quelques secondes et exportez-les directement vers FoundryVTT, Roll20 ou d'autres Tables Virtuelles (VTT) avec les murs et les collisions pré-configurés.
 
-1. Clone repository
+---
 
-2. Start coding!
-Check the local tests in `test/`. Do not modify the tests!
+## 📸 Captures d'écran
 
-3. Run tests locally
-Make all tests in `app/test/java` pass.
+<p align="center">
+<img width="1282" height="832" alt="Interface Principale" src="https://github.com/user-attachments/assets/a83d08da-255c-4f78-a82d-5aa5ca6e57b8" />
+</p>
 
-4. Do not send PRs to the repo!
+| Système de Murs | Interface Immersive |
+| :---: | :---: |
+| <img width="1282" height="832" alt="MapDungeon1" src="https://github.com/user-attachments/assets/869c42a0-c3ee-4126-994e-fcccbad3c6d4" /> | <img width="1282" height="832" alt="immersion" src="https://github.com/user-attachments/assets/ba5fe720-516f-47b5-8dd8-ca3d0692cab0" /> |
 
-# Instructions for hosts
+---
 
-1. Create a couple of slides explaining the goal of the challenge and showing a screenshot of the app.
-1. Show the first hint on screen and drop a new one every ~5 minutes.
-2. Make sure contestants don't modify the tests instead of the code under test!
+## ✨ Fonctionnalités Clés
 
-## Hints
+* **🎨 Système de Tuiles :** Glissez-déposez facilement des textures sur une grille (64x64px).
+* **🧱 Murs Dynamiques :** Tracez des murs qui bloquent la ligne de vue (LOS). L'export conserve ces données !
+* **🌍 Export Universel VTT (.dd2vtt) :** Génère un fichier contenant l'image ET les données des murs. Importez-le dans FoundryVTT (via *Universal Battlemap Importer*) et votre carte est jouable instantanément.
+* **🌑 Interface Dark Fantasy :** Une UI élégante et non intrusive conçue pour rester dans l'ambiance.
+* **🏗️ Gestion des Couches :** Couches Sol, Objets et Pions indépendantes.
+* **💾 Sauvegarde & Chargement :** Sauvegardez vos projets en JSON pour les modifier plus tard.
+* **🖱️ Ergonomie :** Scroll vertical pour les assets, historique Undo/Redo (30 actions) et "Mode Immersion" plein écran.
 
-### Test order
-1. `LocationScreenTest`
-1. `LocationViewModelTest`
-1. `UiLayerTest`
-1. `LocationConfigChangeTest`
+---
 
-### LocationScreenTest
-* Fix hardcoded title in `TopAppBar`
-* Swap IDs in left/right icons
+## 🚀 Installation & Utilisation
 
-### LocationViewModelTest
-* Catch error in `LocationViewModel`'s Flow (don't forget to emit it)
+### Option 1 : Pour les Utilisateurs (Windows)
+1.  Allez dans l'onglet [Releases](https://github.com/VOTRE_PSEUDO/VOTRE_REPO/releases).
+2.  Téléchargez le dernier fichier `.zip`.
+3.  Extrayez-le n'importe où sur votre ordinateur.
+4.  Lancez `MapDungeon.exe`.
+5.  *C'est tout ! Pas besoin d'installer Python.*
 
-### UiLayerTest
-* `LocationScreenForecast`: iterate on `forecast.forecastWeek` and create multiple rows in a column.
+### Option 2 : Pour les Développeurs (Python)
+1.  Clonez ce dépôt :
+    ```bash
+    git clone [https://github.com/Kevin31410/MapDungeon.git](https://github.com/Kevin31410/MapDungeon.git)
+    cd VOTRE_REPO
+    ```
+2.  Installez les dépendances :
+    ```bash
+    pip install pygame
+    ```
+3.  Lancez l'éditeur :
+    ```bash
+    python MapDungeon.py
+    ```
+    
+### 🛠️ Compilation (Créer l'exécutable)
+Si vous souhaitez générer votre propre fichier `.exe`, lancez simplement le script de build inclus :
+    ```bash
+    python build_bundled.py
+    ```
+Cela créera un exécutable autonome dans le dossier dist.
 
-### LocationConfigChangeTest
-* `expandedDays` should be saveable (look for `indexSaver`!)
+---
 
+## 🎮 Contrôles
 
-# License
+| Action | Contrôle |
+| :--- | :--- |
+| **Poser une tuile** | Clic Gauche |
+| **Effacer une tuile** | Outil "GOMME" + Clic Gauche |
+| **Tracer un mur** | Outil "MUR" + Glisser-Déposer |
+| **Défiler les assets** | Molette Souris (sur le panneau de droite) |
+| **Pivoter l'asset** | Bouton "PIVOTER" ou Interface |
+| **Mode Immersion** | Bouton "IMMERSION" (Quitter avec la croix 'X') |
+| **Annuler / Rétablir** | Boutons en haut du menu |
 
-Now in Android is distributed under the terms of the Apache License (Version 2.0). See the
-[license](LICENSE) for more information.
+---
+
+## 🤝 Contribuer
+Les contributions sont les bienvenues ! Si vous souhaitez ajouter des packs de textures, corriger des bugs ou ajouter des fonctionnalités (comme le brouillard de guerre) :
+1.  Forkez le projet.
+2.  Créez votre branche (git checkout -b feature/MaSuperFeature).
+3.  Commitez vos changements (git commit -m 'Ajout de MaSuperFeature').
+4.  Pushez vers la branche (git push origin feature/MaSuperFeature).
+5.  Ouvrez une Pull Request.
+
+---
+
+## 📜 Licence
+Distribué sous la licence MIT. Voir le fichier LICENSE pour plus d'informations.
+
+---
+
+<p align="center">
+Fait avec ❤️ par Kevin31410 pour la communauté JDR.
+</p>
+
