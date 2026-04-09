@@ -59,10 +59,12 @@
     ```
     
 ### 🛠️ Compilation (Créer l'exécutable)
+
 Si vous souhaitez générer votre propre fichier `.exe`, lancez simplement le script de build inclus :
-    ```bash
-    python build_bundled.py
-    ```
+
+```bash
+python build_bundled.py
+```
 Cela créera un exécutable autonome dans le dossier dist.
 
 ---
